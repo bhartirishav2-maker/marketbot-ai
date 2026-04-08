@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MarketBot AI — Digital Marketing Agent</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="avatar">🤖</div>
+    <div class="header-info">
+      <div class="agent-name">MarketBot AI — Digital Marketing Agent</div>
+      <div class="agent-sub"><span class="dot"></span> Online · Powered by Claude AI</div>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn" onclick="clearChat()" title="Clear chat">🗑️</button>
+      <button class="icon-btn" onclick="exportChat()" title="Export outputs">⬇️</button>
+    </div>
+  </div>
+
+  <!-- MODE BAR -->
+  <div class="mode-bar" id="modeBar">
+    <button class="mpill on" onclick="setMode(this,'all')">All Tasks</button>
+    <button class="mpill" onclick="setMode(this,'content')">Content</button>
+    <button class="mpill" onclick="setMode(this,'seo')">SEO</button>
+    <button class="mpill" onclick="setMode(this,'ads')">Paid Ads</button>
+    <button class="mpill" onclick="setMode(this,'social')">Social Media</button>
+    <button class="mpill" onclick="setMode(this,'email')">Email</button>
+    <button class="mpill" onclick="setMode(this,'ecom')">E-Commerce</button>
+    <button class="mpill" onclick="setMode(this,'analytics')">Analytics</button>
+    <button class="mpill" onclick="setMode(this,'strategy')">Strategy</button>
+  </div>
+
+  <!-- QUICK ACTION CARDS -->
+  <div class="qagrid" id="qaGrid"></div>
+
+  <!-- HINT CHIPS -->
+  <div class="hints" id="hints"></div>
+
+  <!-- CHAT AREA -->
+  <div class="chat-area" id="chatArea"></div>
+
+  <!-- SAVE BAR -->
+  <div class="save-bar hidden" id="saveBar">
+    <span>✅ Outputs saved</span>
+    <button onclick="copyAllOutputs()">Copy All Outputs</button>
+  </div>
+
+  <!-- INPUT AREA -->
+  <div class="input-area">
+    <div class="input-row">
+      <textarea id="cinput" class="cinput" rows="1"
+        placeholder="Ask anything — ads, SEO, email, product listings, strategy..."
+        onkeydown="handleKey(event)" oninput="grow(this)"></textarea>
+      <button class="sbtn" onclick="sendMessage()">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="white"/></svg>
+      </button>
+    </div>
+    <p class="input-note">⚡ Powered by Claude AI · Enter your Anthropic API key in <code>config.js</code></p>
+  </div>
+
+</div>
+
+<script src="config.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
